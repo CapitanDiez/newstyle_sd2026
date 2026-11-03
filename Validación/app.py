@@ -1,14 +1,7 @@
 import ollama
  
-# Validación de requerimientos funcionales
-# Módulo: Acceso y gestión de jugadores
- 
- 
-# ==============================
-# RF-01 - Inicio de sesión (Módulo: Autenticación)
-# ==============================
-print("========== RF-01 - Inicio de sesión ==========")
-requerimiento = "Cuando el usuario escribe su nombre de usuario y contraseña en la pantalla de acceso y presiona el botón \"Iniciar sesión\", el módulo de autenticación debe validar las credenciales en la base de datos, en la tabla usuarios, permitiendo el acceso solo si el registro está activo y tiene uno de los roles permitidos (entrenador, capitán o coordinación deportiva), y mostrando un mensaje de error en caso contrario."
+print("RF-01")
+requerimiento = "Cuando ocurre la situación que detona el evento de inicio de sesión, es decir, cuando el usuario presiona el botón 'Iniciar sesión' después de escribir su nombre de usuario y contraseña, el módulo de autenticación debe validar las credenciales en la base de datos, en la tabla usuarios, permitiendo el acceso solo si el registro está activo y tiene uno de los roles permitidos (entrenador, capitán o coordinación deportiva), y mostrando un mensaje de error en caso contrario."
 response = ollama.systemone (
     model ="d1-omni:600m",
     state = requerimiento,
@@ -102,12 +95,8 @@ else:
  
 print()
  
- 
-# ==============================
-# RF-02 - Validar registro de jugador (Módulo: Gestión de jugadores)
-# ==============================
-print("========== RF-02 - Validar registro de jugador ==========")
-requerimiento = "Cuando el entrenador o el capitán ingresa el nombre, la matrícula, la carrera, la rama y la posición de un jugador en el formulario de registro y presiona el botón \"Guardar\", el módulo de gestión de jugadores debe validar que todos los campos obligatorios del formulario estén completos, mostrando el resultado en un tiempo máximo de 2 segundos."
+print("RF-02")
+requerimiento = "Cuando el entrenador o el capitán ingresa el nombre, la matrícula, la carrera, la rama y la posición de un jugador en el formulario de registro y presiona el botón 'Guardar', el módulo de gestión de jugadores debe validar que todos los campos obligatorios del formulario estén completos, mostrando el resultado en un tiempo máximo de 2 segundos."
 response = ollama.systemone (
     model ="d1-omni:600m",
     state = requerimiento,
@@ -201,12 +190,8 @@ else:
  
 print()
  
- 
-# ==============================
-# RF-11 - Guardar jugador (Módulo: Gestión de jugadores)
-# ==============================
-print("========== RF-11 - Guardar jugador ==========")
-requerimiento = "Cuando el formulario de registro pasa la validación y el entrenador o el capitán confirma el guardado, el módulo de gestión de jugadores debe guardar al nuevo jugador en la base de datos, en la tabla jugadores, con estado \"activo\", verificando que la matrícula no esté registrada y que el número de playera no se repita dentro de la misma rama."
+print("RF-11")
+requerimiento = "Cuando ocurre el evento de guardado de un jugador, es decir, cuando el entrenador o el capitán confirma el registro después de que el formulario pasó la validación, el módulo de gestión de jugadores debe guardar al nuevo jugador en la base de datos, en la tabla jugadores, con estado 'activo', verificando que la matrícula no esté registrada y que el número de playera no se repita dentro de la misma rama."
 response = ollama.systemone (
     model ="d1-omni:600m",
     state = requerimiento,
@@ -300,12 +285,8 @@ else:
  
 print()
  
- 
-# ==============================
-# RF-12 - Dar de baja o reactivar jugador (Módulo: Gestión de jugadores)
-# ==============================
-print("========== RF-12 - Dar de baja o reactivar jugador ==========")
-requerimiento = "Cuando el entrenador selecciona a un jugador y presiona el botón \"Dar de baja\" o \"Reactivar\", el módulo de gestión de jugadores debe cambiar el estado del jugador a \"baja\" o \"activo\" en la base de datos, en la tabla jugadores, conservando su historial de asistencias y partidos sin eliminar el registro."
+print("RF-12")
+requerimiento = "Cuando ocurre el evento de cambio de estado de un jugador, es decir, cuando el entrenador presiona el botón 'Dar de baja' o 'Reactivar', el módulo de gestión de jugadores debe cambiar el estado del jugador a 'baja' o 'activo' en la base de datos, en la tabla jugadores, conservando su historial de asistencias y partidos sin eliminar el registro."
 response = ollama.systemone (
     model ="d1-omni:600m",
     state = requerimiento,
@@ -399,12 +380,8 @@ else:
  
 print()
  
- 
-# ==============================
-# RF-20 - Permisos por rol (Módulo: Autenticación)
-# ==============================
-print("========== RF-20 - Permisos por rol ==========")
-requerimiento = "Cuando un usuario con rol de capitán o de coordinación deportiva inicia sesión, el módulo de autenticación debe consultar su rol en la base de datos, en la tabla usuarios, habilitando al capitán solo el registro de jugadores, el pase de lista y la disponibilidad, y a la coordinación deportiva solo la consulta de jugadores y reportes."
+print("RF-20")
+requerimiento = "Cuando ocurre el evento de inicio de sesión de un capitán o de la coordinación deportiva, es decir, cuando uno de estos usuarios entra al sistema, el módulo de autenticación debe consultar su rol en la base de datos, en la tabla usuarios, habilitando al capitán solo el registro de jugadores, el pase de lista y la disponibilidad, y a la coordinación deportiva solo la consulta de jugadores y reportes."
 response = ollama.systemone (
     model ="d1-omni:600m",
     state = requerimiento,
